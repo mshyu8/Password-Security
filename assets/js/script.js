@@ -17,10 +17,13 @@ passwordText.value = password;
 var generatePassword = function() {
   
   var passwordLength = window.prompt("How long do you want your password to be? It must be inbetween 8 and 128 charcters.")
+  var lowerCase = window.prompt("Do you want lowercase letters in your password?");
+  var upperCase = window.prompt("Do you want uppercase letters in your password?");
+  var numericNumbers = window.prompt("Do you want numberic numbers in your password?");
+  var specialChars = window.prompt("Do you want special characters in your password?");
 
 
-
-var lowerCase = window.prompt("Do you want lowercase letters in your password?");
+/* var lowerCase = window.prompt("Do you want lowercase letters in your password?");
   if (lowerCase === yes) {
     localStorage.setItem("yes", lowerCase);
   } else {
@@ -54,12 +57,13 @@ var lowerCase = window.prompt("Do you want lowercase letters in your password?")
         var numeric = "123456789";
         var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
+        */
 
-        if (lowerCase === yes && upperCase === yes && specialChars === yes && numericNumbers === yes) {
-        var options = "abcdefghijklmnopqrstubwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-          for (var i = 0; i <= passwordLength; i++) {
+        if (lowerCase === "yes" && upperCase === "yes" && specialChars === "yes" && numericNumbers === "yes") {
+          var options = "abcdefghijklmnopqrstubwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+          for (i = 0; i <= passwordLength; i++) {
           var randomNumber = Math.floor(Math.random() * options.length);
-          password += chars.substring(randomNumber, randomNumber +1);
+          password += options.substring(randomNumber, randomNumber +1);
           }
          } else if (lowerCase === yes && upperCase === yes && specialChars === yes && numericNumbers === no) {
           var options = "abcdefghijklmnopqrstubwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
@@ -145,18 +149,11 @@ var lowerCase = window.prompt("Do you want lowercase letters in your password?")
             var randomNumber = Math.floor(Math.random() * options.length);
             password += chars.substring(randomNumber, randomNumber +1);
          }  
+        } else {
+          alert("You must choose one of the options.")
+          generatePassword();
+        }
 
-        
-
-
-
-
-
-
-
-      
-  
-  
 }
 
 
